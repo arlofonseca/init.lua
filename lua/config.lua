@@ -30,3 +30,11 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set expandtab")
+
+vim.keymap.set('n', '<leader>ff', function()
+  require('telescope.builtin').find_files()
+end, { noremap = true, silent = true, desc = 'Find files' })
+
+vim.keymap.set('n', '<leader>lg', function()
+  require('telescope.builtin').live_grep()
+end, { noremap = true, silent = true, desc = 'Live grep' })
