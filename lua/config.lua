@@ -18,6 +18,7 @@ vim.keymap.set("n", "<leader>bn", ":bnext<CR>")
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>")
 vim.keymap.set("n", "u", "<Nop>")
 vim.keymap.set("n", "p", "<Nop>")
+vim.keymap.set("n", "<leader>/", "tc")
 
 vim.cmd("set cursorline")
 vim.cmd("set cursorcolumn")
@@ -33,8 +34,20 @@ vim.cmd("set expandtab")
 
 vim.keymap.set('n', '<leader>ff', function()
   require('telescope.builtin').find_files()
-end, { noremap = true, silent = true, desc = 'Find files' })
+end)
 
-vim.keymap.set('n', '<leader>lg', function()
+vim.keymap.set('n', '<leader>ft', function()
   require('telescope.builtin').live_grep()
-end, { noremap = true, silent = true, desc = 'Live grep' })
+end)
+
+vim.keymap.set('n', '<leader>term', function()
+  require('toggleterm').toggle()
+end)
+
+vim.keymap.set("n", "<leader>fb", function()
+  require('telescope.builtin').buffers()
+end)
+
+vim.keymap.set("n", "<leader>fm", function()
+  require('telescope.builtin').marks()
+end)
