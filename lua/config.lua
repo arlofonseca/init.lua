@@ -20,18 +20,6 @@ vim.keymap.set("n", "u", "<Nop>")
 vim.keymap.set("n", "p", "<Nop>")
 vim.keymap.set("n", "<leader>/", "tc")
 
-vim.cmd("set cursorline")
-vim.cmd("set cursorcolumn")
-
-vim.cmd("set clipboard=unnamedplus")
-vim.cmd("set mouse=a")
-vim.cmd("set showmode")
-
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.cmd("set expandtab")
-
 vim.keymap.set('n', '<leader>ff', function()
   require('telescope.builtin').find_files()
 end)
@@ -51,3 +39,15 @@ end)
 vim.keymap.set("n", "<leader>fm", function()
   require('telescope.builtin').marks()
 end)
+
+vim.cmd("set cursorline")
+vim.cmd("set cursorcolumn")
+
+vim.cmd("set clipboard=unnamedplus")
+vim.cmd("set mouse=a")
+vim.cmd("set showmode")
+
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
+vim.cmd("set expandtab")
