@@ -18,7 +18,7 @@ vim.keymap.set("n", "<leader>bn", ":bnext<CR>")
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>")
 vim.keymap.set("n", "u", "<Nop>")
 vim.keymap.set("n", "p", "<Nop>")
-vim.keymap.set("n", "<leader>/", "tc")
+vim.keymap.set("n", "<Space>", "<Nop>")
 
 vim.keymap.set('n', '<leader>ff', function()
   require('telescope.builtin').find_files()
