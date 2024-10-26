@@ -19,25 +19,11 @@ vim.keymap.set("n", "<leader>bp", ":bprevious<CR>")
 vim.keymap.set("n", "u", "<Nop>")
 vim.keymap.set("n", "p", "<Nop>")
 vim.keymap.set("n", "<Space>", "<Nop>")
-
-vim.keymap.set('n', '<leader>ff', function()
-  require('telescope.builtin').find_files()
-end)
-
-vim.keymap.set('n', '<leader>ft', function()
-  require('telescope.builtin').live_grep()
-end)
+vim.cmd("autocmd BufEnter * normal! m`")
+vim.keymap.set("n", "<Esc>", ":b#<CR>")
 
 vim.keymap.set('n', '<leader>term', function()
   require('toggleterm').toggle()
-end)
-
-vim.keymap.set("n", "<leader>fb", function()
-  require('telescope.builtin').buffers()
-end)
-
-vim.keymap.set("n", "<leader>fm", function()
-  require('telescope.builtin').marks()
 end)
 
 vim.cmd("set cursorline")
