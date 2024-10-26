@@ -1,26 +1,26 @@
 return {
   {
-    "sindrets/diffview.nvim",
+    'sindrets/diffview.nvim',
     keys = {
       {
-        "<leader>do",
+        '<leader>do',
         function()
-          require("diffview").open()
+          require('diffview').open()
         end,
       },
       {
-        "<leader>dc",
+        '<leader>dc',
         function()
-          require("diffview").close()
+          require('diffview').close()
         end,
       },
       {
-        "<leader>fh",
+        '<leader>dh',
         function()
-          require("diffview").file_history(nil, "%")
+          require('diffview').file_history(nil, '%')
         end,
       }
     },
-    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
+    cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewFileHistory' },
   }
 }
