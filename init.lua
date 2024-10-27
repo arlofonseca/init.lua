@@ -1,3 +1,5 @@
+_G.vim = vim
+
 local path = ('%s/lazy/lazy.nvim'):format(vim.fn.stdpath('data'))
 
 if not vim.loop.fs_stat(path) then

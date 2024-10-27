@@ -1,11 +1,21 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
-vim.wo.number = true
-vim.wo.relativenumber = true
-
-vim.o.lazyredraw = true
-vim.o.scrolloff = 8
+vim.opt.autoindent = true
+vim.opt.expandtab = true
+vim.opt.lazyredraw = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.scrolloff = 5
+vim.opt.shiftwidth = 2
+vim.opt.showcmd = true
+vim.opt.smartindent = true
+vim.opt.softtabstop = 2
+vim.opt.termguicolors = true
+vim.opt.wildmenu = true
+vim.opt.wildmode = 'list:longest'
 
 vim.keymap.set('n', 'u', '<Nop>')
 vim.keymap.set('n', 'p', '<Nop>')
