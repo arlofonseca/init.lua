@@ -8,5 +8,7 @@ end
 
 vim.opt.rtp:prepend(path)
 
-require('config')
+require('config/keymap')
+require('config/options')
+
 require('lazy').setup('plugins')
