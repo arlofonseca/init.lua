@@ -21,6 +21,5 @@ return {
         end
       }
     },
-    cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewFileHistory' },
   }
 }
