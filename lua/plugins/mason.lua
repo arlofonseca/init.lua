@@ -38,6 +38,6 @@ return {
       else
         installPackages()
       end
-    end,
+    end
   }
 }

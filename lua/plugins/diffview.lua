@@ -6,19 +6,19 @@ return {
         '<leader>do',
         function()
           require('diffview').open()
-        end,
+        end
       },
       {
         '<leader>dc',
         function()
           require('diffview').close()
-        end,
+        end
       },
       {
         '<leader>dh',
         function()
           require('diffview').file_history(nil, '%')
-        end,
+        end
       }
     },
     cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewFileHistory' },
