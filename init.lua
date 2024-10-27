@@ -1,5 +1,3 @@
-_G.vim = vim
-
 local data_path = vim.fn.stdpath('data')
 local lazy_path = ('%s/lazy/lazy.nvim'):format(data_path)
 
