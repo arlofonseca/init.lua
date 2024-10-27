@@ -8,7 +8,6 @@ return {
         'typescript-language-server',
         'lua-language-server',
         'prettierd',
-        'stylua',
       },
     },
     config = function(_, opts)
