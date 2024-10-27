@@ -5,5 +5,6 @@ local function load(module)
   end
 end
 
+load('config.debug')
 load('config.keymap')
 load('config.options')

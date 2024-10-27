@@ -1,4 +1,4 @@
-local success, error = pcall(function()
+local success, err = pcall(function()
   vim.cmd('set noshowmode')
   vim.g.mapleader = ' '
   vim.g.maplocalleader = ','
@@ -27,10 +27,11 @@ local success, error = pcall(function()
   vim.opt.termguicolors = true
   vim.opt.wildmenu = true
   vim.opt.wildmode = 'list:longest'
+  vim.opt.wrap = false
 
-	vim.opt.updatetime = 50
+  vim.opt.updatetime = 50
 end)
 
 if not success then
-  print(('Something went wrong while trying to load options: %s'):format(error))
+  print(('Something went wrong while trying to load options: %s'):format(err))
 end
