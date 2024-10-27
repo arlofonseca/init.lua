@@ -7,14 +7,5 @@ end
 
 vim.opt.rtp:prepend(lazy_path)
 
-local function load(module)
-  local success, error = pcall(require, module)
-  if not success then
-    vim.notify(('Something went wrong while trying to load %s: %s'):format(module, error), vim.log.levels.ERROR)
-  end
-end
-
-load('config.keymap')
-load('config.options')
-
+require('config')
 require('lazy').setup('plugins')
