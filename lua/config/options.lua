@@ -1,16 +1,11 @@
 local success, err = pcall(function()
   vim.cmd('set noshowmode')
   vim.g.mapleader = ' '
-  vim.g.maplocalleader = ','
 
   vim.cmd('set cursorline')
   vim.cmd('set cursorcolumn')
 
-  vim.cmd('set clipboard=unnamedplus')
-  vim.cmd('set mouse=a')
-
-  vim.g.loaded_netrw = 1
-  vim.g.loaded_netrwPlugin = 1
+  vim.g.netrw_banner = 0
 
   vim.cmd('set tabstop=2')
   vim.cmd('set softtabstop=2')

@@ -1,14 +1,9 @@
 local success, err = pcall(function()
-  vim.keymap.set('n', 'u', '<Nop>')
-  vim.keymap.set('n', 'p', '<Nop>')
-  vim.keymap.set('n', '<Space>', '<Nop>')
-  vim.keymap.set('n', '<C-f>', '/<C-r><C-w><CR>')
   vim.keymap.set('n', '<C-s>', ':w<CR>')
   vim.keymap.set('n', '<C-q>', ':qa!<CR>')
   vim.keymap.set('n', '<C-z>', 'u')
-  vim.keymap.set({ 'n', 'v' }, '<C-c>', '\'+y')
-  vim.keymap.set('n', '<leader>gb', ':bprev<CR>')
-  vim.keymap.set('n', '<leader>gf', ':bnext<CR>')
+  vim.keymap.set('n', 'q', ':b#<CR>')
+  vim.keymap.set('n', '<Esc>', ':close<CR>', { noremap = true })
 end)
 
 if not success then

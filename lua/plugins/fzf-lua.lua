@@ -1,34 +1,27 @@
 return {
   {
     'ibhagwan/fzf-lua',
-    keys = {
-      {
-        '<leader>ff',
-        function()
-          require('fzf-lua').files()
-        end
-      },
-      {
-        '<leader>fw',
-        function()
-          require('fzf-lua').live_grep()
-        end
-      },
-      {
-        '<leader>fd',
-        function()
-          require('fzf-lua').diagnostics_document()
-        end
-      },
-      {
-        '<leader>fwd',
-        function()
-          require('fzf-lua').diagnostics_workspace()
-        end
-      },
-    },
     config = function()
-      require('fzf-lua').setup({
+      local fzf = require('fzf-lua')
+      local addCommand = vim.api.nvim_create_user_command
+
+      addCommand('Search', function()
+        fzf.files()
+      end, {})
+
+      addCommand('Grep', function()
+        fzf.live_grep()
+      end, {})
+
+      addCommand('DocumentDiagnostics', function()
+        fzf.diagnostics_document()
+      end, {})
+
+      addCommand('WorkspaceDiagnostics', function()
+        fzf.diagnostics_workspace()
+      end, {})
+
+      fzf.setup({
         fzf_opts = { ['--no-separator'] = false },
         winopts = {
           preview = {
@@ -42,7 +35,8 @@ return {
           },
         },
       })
-      require('fzf-lua').register_ui_select()
+
+      fzf.register_ui_select()
     end
   }
 }

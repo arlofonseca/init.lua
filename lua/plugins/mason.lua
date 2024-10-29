@@ -2,7 +2,6 @@ return {
   {
     'williamboman/mason.nvim',
     cmd = 'Mason',
-    keys = { { '<leader>pl', '<cmd>Mason<cr>' } },
     opts = {
       install = {
         'typescript-language-server',
@@ -14,15 +13,6 @@ return {
       require('mason').setup(opts)
       local registry = require('mason-registry')
 
-      registry:on('success', function()
-        vim.defer_fn(function()
-          require('lazy.core.handler.event').trigger({
-            event = 'FileType',
-            buf = vim.api.nvim_get_current_buf(),
-          })
-        end, 100)
-      end)
-
       local function installPackages()
         for _, tool in ipairs(opts.install) do
           local package = registry.get_package(tool)
@@ -31,6 +21,15 @@ return {
           end
         end
       end
+
+      registry:on('success', function()
+        vim.defer_fn(function()
+          require('lazy.core.handler.event').trigger({
+            event = 'FileType',
+            buf = vim.api.nvim_get_current_buf(),
+          })
+        end, 100)
+      end)
 
       if registry.refresh then
         registry.refresh(installPackages)

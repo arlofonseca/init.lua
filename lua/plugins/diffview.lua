@@ -1,25 +1,25 @@
 return {
   {
     'sindrets/diffview.nvim',
-    keys = {
-      {
-        '<leader>do',
-        function()
-          require('diffview').open()
-        end
-      },
-      {
-        '<leader>dc',
-        function()
-          require('diffview').close()
-        end
-      },
-      {
-        '<leader>dh',
-        function()
-          require('diffview').file_history(nil, '%')
-        end
-      }
-    },
+    config = function()
+      local diffview = require('diffview')
+      local addCommand = vim.api.nvim_create_user_command
+
+      diffview.setup({
+        use_icons = false,
+      })
+
+      addCommand('Diffview', function()
+        diffview.open()
+      end, {})
+
+      addCommand('DiffviewClose', function()
+        diffview.close()
+      end, {})
+
+      addCommand('FileHistory', function()
+        diffview.file_history(nil, '%')
+      end, {})
+    end
   }
 }
