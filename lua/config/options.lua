@@ -1,28 +1,24 @@
 local success, err = pcall(function()
-  vim.g.mapleader = ' '
-  vim.g.netrw_banner = 0
+  global.mapleader = ' '
+  global.netrw_banner = 0
 
-  vim.cmd('set cursorline')
-  vim.cmd('set cursorcolumn')
+  execute('set cursorline')
+  execute('set cursorcolumn')
 
-  vim.cmd('set tabstop=2')
-  vim.cmd('set softtabstop=2')
-  vim.cmd('set shiftwidth=2')
-  vim.opt.autoindent = true
-  vim.opt.smartindent = true
-  vim.opt.expandtab = true
+  execute('set tabstop=2')
+  execute('set softtabstop=2')
+  execute('set shiftwidth=2')
+  set.autoindent = true
+  set.smartindent = true
+  set.expandtab = true
 
-  vim.opt.lazyredraw = true
-  vim.opt.number = true
-  vim.opt.relativenumber = true
-  vim.opt.scrolloff = 5
-  vim.opt.showcmd = true
-  vim.opt.termguicolors = true
-  vim.opt.wildmenu = true
-  vim.opt.wildmode = 'list:longest'
-  vim.opt.wrap = false
+  set.number = true
+  set.relativenumber = true
+  set.showcmd = true
+  set.termguicolors = true
+  set.wrap = false
 
-  vim.opt.updatetime = 50
+  set.updatetime = 50
 end)
 
 if not success then

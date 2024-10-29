@@ -3,8 +3,6 @@ return {
     'sindrets/diffview.nvim',
     config = function()
       local diffview = require('diffview')
-      local addCommand = vim.api.nvim_create_user_command
-      local addKeybind = vim.keymap.set
 
       diffview.setup({
         use_icons = false,

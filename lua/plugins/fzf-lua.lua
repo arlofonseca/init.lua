@@ -3,8 +3,6 @@ return {
     'ibhagwan/fzf-lua',
     config = function()
       local fzf = require('fzf-lua')
-      local addCommand = vim.api.nvim_create_user_command
-      local addKeybind = vim.keymap.set
 
       fzf.setup({
         fzf_opts = { ['--no-separator'] = false },
