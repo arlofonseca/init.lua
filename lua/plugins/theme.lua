@@ -2,33 +2,24 @@ return {
   {
     'ellisonleao/gruvbox.nvim',
     config = function()
-      vim.keymap.set('n', '<leader>cb', function()
-        vim.o.background = vim.o.background == 'light' and 'dark' or 'light'
-        vim.cmd('hi NonText guifg=bg')
-      end)
+      local gruvbox = require('gruvbox')
+      local addCommand = vim.api.nvim_create_user_command
+      local addKeybind = vim.keymap.set
 
-      require('gruvbox').setup({
+      gruvbox.setup({
         contrast = 'hard',
       })
+
+      addCommand('ChangeBackground', function()
+        vim.o.background = vim.o.background == 'light' and 'dark' or 'light'
+        vim.cmd('hi NonText guifg=bg')
+      end, {})
+
+      addKeybind('n', '<leader>cb', '<cmd>ChangeBackground<CR>')
 
       vim.o.background = 'dark'
       vim.cmd.colorscheme('gruvbox')
       vim.cmd('hi NonText guifg=bg')
     end
-  },
-  --[[
-  {
-    'polirritmico/monokai-nightasty.nvim',
-    config = function()
-      vim.keymap.set('n', '<leader>cb', function()
-        vim.o.background = vim.o.background == 'light' and 'dark' or 'light'
-        vim.cmd('hi NonText guifg=bg')
-      end)
-
-      vim.o.background = 'dark'
-      vim.cmd.colorscheme('monokai-nightasty')
-      vim.cmd('hi NonText guifg=bg')
-    end
   }
-  --]]
 }

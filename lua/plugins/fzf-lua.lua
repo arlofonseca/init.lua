@@ -4,22 +4,7 @@ return {
     config = function()
       local fzf = require('fzf-lua')
       local addCommand = vim.api.nvim_create_user_command
-
-      addCommand('Search', function()
-        fzf.files()
-      end, {})
-
-      addCommand('Grep', function()
-        fzf.live_grep()
-      end, {})
-
-      addCommand('DocumentDiagnostics', function()
-        fzf.diagnostics_document()
-      end, {})
-
-      addCommand('WorkspaceDiagnostics', function()
-        fzf.diagnostics_workspace()
-      end, {})
+      local addKeybind = vim.keymap.set
 
       fzf.setup({
         fzf_opts = { ['--no-separator'] = false },
@@ -35,6 +20,26 @@ return {
           },
         },
       })
+
+      addCommand('Search', function()
+        fzf.files()
+      end, {})
+
+      addKeybind('n', '<leader>sf', '<cmd>Search<CR>')
+
+      addCommand('Grep', function()
+        fzf.live_grep()
+      end, {})
+
+      addKeybind('n', '<leader>lg', '<cmd>Grep<CR>')
+
+      addCommand('DocumentDiagnostics', function()
+        fzf.diagnostics_document()
+      end, {})
+
+      addCommand('WorkspaceDiagnostics', function()
+        fzf.diagnostics_workspace()
+      end, {})
 
       fzf.register_ui_select()
     end

@@ -2,19 +2,24 @@ return {
   {
     'williamboman/mason.nvim',
     cmd = 'Mason',
-    opts = {
-      install = {
+    keys = { { '<leader>pl', '<cmd>Mason<CR>' } },
+    config = function()
+      local mason = require('mason')
+      local registry = require('mason-registry')
+      local handler = require('lazy.core.handler.event')
+
+      local extras = {
         'typescript-language-server',
         'lua-language-server',
         'prettierd',
-      },
-    },
-    config = function(_, opts)
-      require('mason').setup(opts)
-      local registry = require('mason-registry')
+      }
+
+      mason.setup({
+        install = extras,
+      })
 
       local function installPackages()
-        for _, tool in ipairs(opts.install) do
+        for _, tool in pairs(extras) do
           local package = registry.get_package(tool)
           if not package:is_installed() then
             package:install()
@@ -24,7 +29,7 @@ return {
 
       registry:on('success', function()
         vim.defer_fn(function()
-          require('lazy.core.handler.event').trigger({
+          handler.trigger({
             event = 'FileType',
             buf = vim.api.nvim_get_current_buf(),
           })
